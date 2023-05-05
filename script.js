@@ -26,6 +26,16 @@ function createLion() {
   return newLion;
 }
 
+document.getElementById("generate-button").addEventListener("click", function() {
+  lion = createLion();
+  document.getElementById("name").textContent = lion.name;
+  document.getElementById("gender").textContent = lion.gender;
+  document.getElementById("appearance").textContent = lion.appearance;
+  document.getElementById("age").textContent = lion.age;
+  localStorage.setItem("lion", JSON.stringify(lion));
+  document.getElementById("events").innerHTML = "";
+});
+
 function generateEvent() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
   const eventElement = document.createElement("p");
