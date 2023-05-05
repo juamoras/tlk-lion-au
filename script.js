@@ -1,6 +1,7 @@
 const events = [
   "You played with your littermates",
   "An outside lion argued with your father",
+  "You got a best friend",
   "You are wiser. Now you have 1 year old",
   // Add more events here
 ];
