@@ -45,8 +45,13 @@ function generateEvent() {
   document.getElementById("events").appendChild(eventElement);
   lion.age++;
   document.getElementById("age").textContent = lion.age;
+  lion.gender = lion.gender[Math.floor(Math.random() * lion.gender.length)];
+  lion.appearance = lion.appearance[Math.floor(Math.random() * lion.appearance.length)];
+  document.getElementById("gender").textContent = lion.gender;
+  document.getElementById("appearance").textContent = lion.appearance;
   localStorage.setItem("lion", JSON.stringify(lion));
 }
+
 
 const savedLion = JSON.parse(localStorage.getItem("lion"));
 if (savedLion) {
