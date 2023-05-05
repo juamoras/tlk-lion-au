@@ -13,6 +13,17 @@ let lion = {
   femaleNames: ['Nala', 'Sarabi', 'Kiara', 'Zira', 'Shenzi', 'Vitani']
 };
 
+document.getElementById("generate-button").addEventListener("click", function() {
+  localStorage.removeItem("lion"); // Remove old lion data
+  lion = createLion();
+  document.getElementById("name").textContent = lion.name;
+  document.getElementById("gender").textContent = lion.gender;
+  document.getElementById("appearance").textContent = lion.appearance;
+  document.getElementById("age").textContent = lion.age;
+  localStorage.setItem("lion", JSON.stringify(lion));
+  document.getElementById("events").innerHTML = "";
+});
+
 function createLion() {
   let newLion = Object.create(lion);
   newLion.gender = lion.gender[Math.floor(Math.random() * lion.gender.length)];
@@ -25,16 +36,6 @@ function createLion() {
   }
   return newLion;
 }
-
-document.getElementById("generate-button").addEventListener("click", function() {
-  lion = createLion();
-  document.getElementById("name").textContent = lion.name;
-  document.getElementById("gender").textContent = lion.gender;
-  document.getElementById("appearance").textContent = lion.appearance;
-  document.getElementById("age").textContent = lion.age;
-  localStorage.setItem("lion", JSON.stringify(lion));
-  document.getElementById("events").innerHTML = "";
-});
 
 function generateEvent() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
