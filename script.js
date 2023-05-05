@@ -6,11 +6,25 @@ const events = [
 ];
 
 let lion = {
-  name: "Simba",
-  gender: "Male",
-  appearance: "Golden fur with a red mane",
+  gender: ['male', 'female'],
+  appearance: ['golden', 'sandy', 'dark', 'light', 'spotted', 'striped', 'solid'],
   age: 0,
+  maleNames: ['Simba', 'Mufasa', 'Scar', 'Kovu', 'Timon', 'Pumbaa', 'Rafiki', 'Banzai', 'Ed', 'Nuka'],
+  femaleNames: ['Nala', 'Sarabi', 'Kiara', 'Zira', 'Shenzi', 'Vitani']
 };
+
+function createLion() {
+  let newLion = Object.create(lion);
+  newLion.gender = lion.gender[Math.floor(Math.random() * lion.gender.length)];
+  newLion.appearance = lion.appearance[Math.floor(Math.random() * lion.appearance.length)];
+  newLion.age = 0;
+  if (newLion.gender === 'male') {
+    newLion.name = lion.maleNames[Math.floor(Math.random() * lion.maleNames.length)];
+  } else {
+    newLion.name = lion.femaleNames[Math.floor(Math.random() * lion.femaleNames.length)];
+  }
+  return newLion;
+}
 
 function generateEvent() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
