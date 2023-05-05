@@ -39,6 +39,7 @@ function createLion() {
 }
 
 
+
 function generateEvent() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
   const eventElement = document.createElement("p");
