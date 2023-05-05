@@ -56,3 +56,15 @@ document.getElementById("name").textContent = lion.name;
 document.getElementById("gender").textContent = lion.gender;
 document.getElementById("appearance").textContent = lion.appearance;
 document.getElementById("age").textContent = lion.age;
+
+// Reset lion data when "generate-button" is clicked
+document.getElementById("generate-button").addEventListener("click", function() {
+  localStorage.removeItem("lion"); // Remove old lion data
+  lion = createLion();
+  document.getElementById("name").textContent = lion.name;
+  document.getElementById("gender").textContent = lion.gender;
+  document.getElementById("appearance").textContent = lion.appearance;
+  document.getElementById("age").textContent = lion.age;
+  localStorage.setItem("lion", JSON.stringify(lion));
+  document.getElementById("events").innerHTML = "";
+});
