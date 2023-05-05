@@ -1,78 +1,67 @@
 const events = [
   "You played with your littermates",
   "An outside lion argued with your father",
-  "You got a best friend",
-  "You are wiser. Now you have 1 year old",
+  "You made a new friend",
+  "You turned 1 year old",
   // Add more events here
 ];
 
-let lion = {
-  gender: ['male', 'female'],
-  appearance: ['golden', 'sandy', 'dark', 'light', 'spotted', 'striped', 'solid'],
-  age: 0,
+const lion = {
+  genders: ['male', 'female'],
+  appearances: ['golden', 'sandy', 'dark', 'light', 'spotted', 'striped', 'solid'],
   maleNames: ['Simba', 'Mufasa', 'Scar', 'Kovu', 'Timon', 'Pumbaa', 'Rafiki', 'Banzai', 'Ed', 'Nuka'],
-  femaleNames: ['Nala', 'Sarabi', 'Kiara', 'Zira', 'Shenzi', 'Vitani']
+  femaleNames: ['Nala', 'Sarabi', 'Kiara', 'Zira', 'Shenzi', 'Vitani'],
+  create() {
+    const gender = this.genders[Math.floor(Math.random() * this.genders.length)];
+    const appearance = this.appearances[Math.floor(Math.random() * this.appearances.length)];
+    const age = 0;
+    const name = (gender === 'male') ? this.maleNames[Math.floor(Math.random() * this.maleNames.length)] : this.femaleNames[Math.floor(Math.random() * this.femaleNames.length)];
+    return { gender, appearance, age, name };
+  }
 };
 
-document.getElementById("generate-button").addEventListener("click", function() {
-  localStorage.removeItem("lion"); // Remove old lion data
-  lion = createLion();
-  document.getElementById("name").textContent = lion.name;
-  document.getElementById("gender").textContent = lion.gender;
-  document.getElementById("appearance").textContent = lion.appearance;
-  document.getElementById("age").textContent = lion.age;
-  localStorage.setItem("lion", JSON.stringify(lion));
-  document.getElementById("events").innerHTML = "";
-});
+const lionElement = document.getElementById("lion");
+const nameElement = document.getElementById("name");
+const genderElement = document.getElementById("gender");
+const appearanceElement = document.getElementById("appearance");
+const ageElement = document.getElementById("age");
+const eventsElement = document.getElementById("events");
 
-function createLion() {
-  let newLion = Object.create(lion);
-  newLion.gender = lion.gender[Math.floor(Math.random() * lion.gender.length)];
-  newLion.appearance = lion.appearance[Math.floor(Math.random() * lion.appearance.length)];
-  newLion.age = 0;
-  if (newLion.gender === 'male') {
-    newLion.name = lion.maleNames[Math.floor(Math.random() * lion.maleNames.length)];
-  } else {
-    newLion.name = lion.femaleNames[Math.floor(Math.random() * lion.femaleNames.length)];
-  }
-  return newLion;
+function updateLionUI(lion) {
+  nameElement.textContent = lion.name;
+  genderElement.textContent = lion.gender;
+  appearanceElement.textContent = lion.appearance;
+  ageElement.textContent = lion.age;
 }
 
+function generateNewLion() {
+  const newLion = lion.create();
+  localStorage.setItem("lion", JSON.stringify(newLion));
+  updateLionUI(newLion);
+  eventsElement.innerHTML = "";
+}
 
-
-function generateEvent() {
+function generateRandomEvent() {
   const randomEvent = events[Math.floor(Math.random() * events.length)];
   const eventElement = document.createElement("p");
   eventElement.textContent = randomEvent;
-  document.getElementById("events").appendChild(eventElement);
-  lion.age++;
-  document.getElementById("age").textContent = lion.age;
-  lion.gender = lion.gender[Math.floor(Math.random() * lion.gender.length)];
-  lion.appearance = lion.appearance[Math.floor(Math.random() * lion.appearance.length)];
-  document.getElementById("gender").textContent = lion.gender;
-  document.getElementById("appearance").textContent = lion.appearance;
-  localStorage.setItem("lion", JSON.stringify(lion));
+  eventsElement.appendChild(eventElement);
+  const savedLion = JSON.parse(localStorage.getItem("lion"));
+  if (savedLion) {
+    savedLion.age++;
+    savedLion.gender = lion.genders[Math.floor(Math.random() * lion.genders.length)];
+    savedLion.appearance = lion.appearances[Math.floor(Math.random() * lion.appearances.length)];
+    localStorage.setItem("lion", JSON.stringify(savedLion));
+    updateLionUI(savedLion);
+  }
 }
-
 
 const savedLion = JSON.parse(localStorage.getItem("lion"));
 if (savedLion) {
-  lion = savedLion;
+  updateLionUI(savedLion);
+} else {
+  generateNewLion();
 }
 
-document.getElementById("name").textContent = lion.name;
-document.getElementById("gender").textContent = lion.gender;
-document.getElementById("appearance").textContent = lion.appearance;
-document.getElementById("age").textContent = lion.age;
-
-// Reset lion data when "generate-button" is clicked
-document.getElementById("generate-button").addEventListener("click", function() {
-  localStorage.removeItem("lion"); // Remove old lion data
-  lion = createLion();
-  document.getElementById("name").textContent = lion.name;
-  document.getElementById("gender").textContent = lion.gender;
-  document.getElementById("appearance").textContent = lion.appearance;
-  document.getElementById("age").textContent = lion.age;
-  localStorage.setItem("lion", JSON.stringify(lion));
-  document.getElementById("events").innerHTML = "";
-});
+document.getElementById("generate-button").addEventListener("click", generateNewLion);
+document.getElementById("event-button").addEventListener("click", generateRandomEvent);
