@@ -1,47 +1,56 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	font-family: sans-serif;
 }
 
-h1 {
-  text-align: center;
+.start-screen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
 
-table {
-  margin: 20px auto;
-  border-collapse: collapse;
-  width: 80%;
-  max-width: 600px;
+.start-screen h1 {
+	font-size: 3em;
+	margin-bottom: 1em;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid #ccc;
+.start-screen button {
+	font-size: 1.5em;
+	padding: 1em 2em;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
 }
 
-#events {
-  margin: 20px auto;
-  width: 80%;
-  max-width: 600px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  min-height: 200px;
-  overflow-y: scroll;
+.game {
+	display: none;
 }
 
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px;
-  border: none;
-  background-color: #0077ff;
-  color: #fff;
-  cursor: pointer;
+.lion-stats, .lion-events, .pride-stats {
+	flex-basis: 33.33%;
+	padding: 1em;
 }
 
-button:hover {
-  background-color: #0057b8;
+.lion-stats h2, .lion-events h2, .pride-stats h2 {
+	margin-top: 0;
 }
 
+.lion-stats p, .pride-stats p {
+	margin: 0.5em 0;
+}
+
+.lion-events #event {
+	height: 300px;
+	overflow: auto;
+	border: 1px solid #ccc;
+	padding: 1em;
+	margin-bottom: 1em;
+}
