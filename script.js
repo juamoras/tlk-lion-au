@@ -30,7 +30,7 @@ function createLioness() {
     gender: "female",
     appearance: ["golden", "sandy", "dark", "light", "spotted", "striped", "solid"][Math.floor(Math.random() * 7)],
     age: 0,
-    name: generateName()
+    name: generateName(),
     pride: {
       name: "Pridelands",
       members: 20
@@ -38,14 +38,13 @@ function createLioness() {
   };
   
   function generateName() {
-  const prefixes = ["Ki", "Ku", "Tu", "Ta", "Za", "Nya", "Ma", "Sha", "Aku", "Mala"];
-  const suffixes = ["ra", "ni", "sha", "ki", "la", "si", "na", "ma", "li", "ku"];
-  const prefixIndex = Math.floor(Math.random() * prefixes.length);
-  const suffixIndex = Math.floor(Math.random() * suffixes.length);
-  const name = prefixes[prefixIndex] + suffixes[suffixIndex];
-  return name;
-}
-
+    const prefixes = ["Ki", "Ku", "Tu", "Ta", "Za", "Nya", "Ma", "Sha", "Aku", "Mala"];
+    const suffixes = ["ra", "ni", "sha", "ki", "la", "si", "na", "ma", "li", "ku"];
+    const prefixIndex = Math.floor(Math.random() * prefixes.length);
+    const suffixIndex = Math.floor(Math.random() * suffixes.length);
+    const name = prefixes[prefixIndex] + suffixes[suffixIndex];
+    return name;
+  }
 
   return lioness;
 }
