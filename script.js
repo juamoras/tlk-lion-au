@@ -1,50 +1,32 @@
-const events = [
-  "You played with your littermates",
-  "An outside lion argued with your father",
-  "You got a best friend",
-  "You are wiser. Now you have 1 year old",
-  // Add more events here
-];
+// Get the DOM elements
+const lionessNameInput = document.getElementById('lioness-name');
+const lionessColorInput = document.getElementById('lioness-color');
+const lionessAgeInput = document.getElementById('lioness-age');
+const eventsList = document.getElementById('events-list');
+const advanceBtn = document.getElementById('advance-btn');
 
-let lioness = createLioness();
-document.getElementById("gender").textContent = lioness.gender;
-document.getElementById("appearance").textContent = lioness.appearance;
-document.getElementById("age").textContent = lioness.age;
-document.getElementById("pride-name").textContent = lioness.pride.name;
-document.getElementById("pride-members").textContent = lioness.pride.members;
+// Create a lioness object with default values
+let lioness = {
+	name: 'Nala',
+	color: 'golden',
+	age: 0
+};
 
-document.getElementById("next-button").addEventListener("click", function() {
-  // Generate event
-  const eventIndex = Math.floor(Math.random() * events.length);
-  const event = events[eventIndex];
-  document.getElementById("event").textContent = event;
-
-  // Update lioness age
-  lioness.age++;
-
-  // TODO: Add more game logic here
+// Update the lioness object with user input
+lionessNameInput.addEventListener('input', () => {
+	lioness.name = lionessNameInput.value;
 });
 
-function createLioness() {
-  const lioness = {
-    gender: "female",
-    appearance: ["golden", "sandy", "dark", "light", "spotted", "striped", "solid"][Math.floor(Math.random() * 7)],
-    age: 0,
-    name: generateName(),
-    pride: {
-      name: "Pridelands",
-      members: 20
-    }
-  };
-  
-  function generateName() {
-    const prefixes = ["Ki", "Ku", "Tu", "Ta", "Za", "Nya", "Ma", "Sha", "Aku", "Mala"];
-    const suffixes = ["ra", "ni", "sha", "ki", "la", "si", "na", "ma", "li", "ku"];
-    const prefixIndex = Math.floor(Math.random() * prefixes.length);
-    const suffixIndex = Math.floor(Math.random() * suffixes.length);
-    const name = prefixes[prefixIndex] + suffixes[suffixIndex];
-    return name;
-  }
+lionessColorInput.addEventListener('input', () => {
+	lioness.color = lionessColorInput.value;
+});
 
-  return lioness;
-}
+lionessAgeInput.addEventListener('input', () => {
+	lioness.age = Number(lionessAgeInput.value);
+});
+
+// Define the lioness life events
+const lifeEvents = [
+	{name: 'Born', description: 'You were born into a loving pride.'},
+	{name: 'First Hunt', description: 'You caught your first prey and brought it back to the pride.'},
+	{name: 'Injured', description: 'You were injured while
