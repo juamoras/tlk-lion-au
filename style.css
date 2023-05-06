@@ -1,56 +1,31 @@
-* {
+.lioness-stats {
+	float: left;
+	width: 30%;
+	padding: 20px;
 	box-sizing: border-box;
 }
 
-body {
+.lioness-events {
+	float: right;
+	width: 70%;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+#events-list {
+	list-style-type: none;
+	padding: 0;
 	margin: 0;
-	font-family: sans-serif;
 }
 
-.start-screen {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-}
-
-.start-screen h1 {
-	font-size: 3em;
-	margin-bottom: 1em;
-}
-
-.start-screen button {
-	font-size: 1.5em;
-	padding: 1em 2em;
+#advance-btn {
+	display: block;
+	margin-top: 20px;
+	font-size: 20px;
+	padding: 10px 20px;
+	border-radius: 5px;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
-	border-radius: 10px;
 	cursor: pointer;
-}
-
-.game {
-	display: none;
-}
-
-.lion-stats, .lion-events, .pride-stats {
-	flex-basis: 33.33%;
-	padding: 1em;
-}
-
-.lion-stats h2, .lion-events h2, .pride-stats h2 {
-	margin-top: 0;
-}
-
-.lion-stats p, .pride-stats p {
-	margin: 0.5em 0;
-}
-
-.lion-events #event {
-	height: 300px;
-	overflow: auto;
-	border: 1px solid #ccc;
-	padding: 1em;
-	margin-bottom: 1em;
 }
