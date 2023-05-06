@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>The Lion King Lion Simulator</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<div class="lioness-stats">
-		<h2>Lioness Stats</h2>
-		<label for="lioness-name">Name:</label>
-		<input type="text" id="lioness-name">
-		<label for="lioness-color">Color:</label>
-		<input type="text" id="lioness-color">
-		<label for="lioness-age">Age:</label>
-		<input type="number" id="lioness-age">
-	</div>
-	<div class="lioness-events">
-		<h2>Events</h2>
-		<ul id="events-list"></ul>
-		<button id="advance-btn">Advance</button>
-	</div>
-	<script src="script.js"></script>
-</body>
+  <head>
+    <title>Lioness Simulator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="events">
+        <h2>Events</h2>
+        <p id="event"></p>
+        <button onclick="advanceMonth()">Advance</button>
+      </div>
+      <div class="details">
+        <h2>Details</h2>
+        <p>Name: <span id="name"></span></p>
+        <p>Age: <span id="age"></span></p>
+        <p>Coat color: <span id="color"></span></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
