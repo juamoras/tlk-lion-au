@@ -17,17 +17,20 @@ let lioness = {
   }
 };
 
-document.getElementById("start-button").addEventListener("click", function() {
-  // Generate lioness
-  lioness = createLioness();
+document.getElementById("start-link").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent default link behavior
+  document.querySelector(".start-screen").classList.add("hidden"); // Hide start screen
+  document.querySelector(".game").classList.remove("hidden"); // Show game screen
+  lioness = createLioness(); // Generate lioness
   document.getElementById("gender").textContent = lioness.gender;
   document.getElementById("appearance").textContent = lioness.appearance;
   document.getElementById("age").textContent = lioness.age;
   document.getElementById("pride-name").textContent = lioness.pride.name;
   document.getElementById("pride-members").textContent = lioness.pride.members;
-  document.querySelector(".start-screen").style.display = "none";
-  document.querySelector(".game").style.display = "grid";
+  // Display first event
+  document.getElementById("event").textContent = events[0];
 });
+
 
 document.getElementById("next-button").addEventListener("click", function() {
   const eventIndex = Math.floor(Math.random() * events.length);
