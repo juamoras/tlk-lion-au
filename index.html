@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Lion Simulator</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Lion Simulator</h1>
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td id="name"></td>
-      </tr>
-      <tr>
-        <td>Gender:</td>
-        <td id="gender"></td>
-      </tr>
-      <tr>
-        <td>Appearance:</td>
-        <td id="appearance"></td>
-      </tr>
-      <tr>
-        <td>Age:</td>
-        <td id="age"></td>
-      </tr>
-    </table>
-    <button id="generate-button">Generate Another</button>
-    <div id="events"></div>
-    <button onclick="generateEvent()">Generate Event</button>
-    <script src="script.js"></script>
-  </body>
+<head>
+	<title>TLK Lion Simulator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="start-screen">
+		<h1>Welcome to TLK Lion Simulator!</h1>
+		<button id="start-button">Click to start the game</button>
+	</div>
+
+	<div class="game">
+		<div class="lion-stats">
+			<h2>Lioness Stats</h2>
+			<p>Gender: <span id="gender"></span></p>
+			<p>Appearance: <span id="appearance"></span></p>
+			<p>Age: <span id="age"></span></p>
+		</div>
+
+		<div class="lion-events">
+			<h2>Game</h2>
+			<div id="event"></div>
+			<button id="next-button">Next</button>
+		</div>
+
+		<div class="pride-stats">
+			<h2>Pride Stats</h2>
+			<p>Pride Name: <span id="pride-name"></span></p>
+			<p>Pride Members: <span id="pride-members"></span></p>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
 </html>
