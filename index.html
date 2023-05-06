@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TLK Lion Simulator</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Lion King Lion Simulator</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="game">
-		<div class="lion-stats">
-			<h2>Lioness Stats</h2>
-			<p>Gender: <span id="gender"></span></p>
-			<p>Appearance: <span id="appearance"></span></p>
-			<p>Age: <span id="age"></span></p>
-		</div>
-
-		<div class="lion-events">
-			<h2>Game</h2>
-			<div id="event"></div>
-			<button id="next-button">Next</button>
-		</div>
-
-		<div class="pride-stats">
-			<h2>Pride Stats</h2>
-			<p>Pride Name: <span id="pride-name"></span></p>
-			<p>Pride Members: <span id="pride-members"></span></p>
-		</div>
+	<div class="lioness-stats">
+		<h2>Lioness Stats</h2>
+		<label for="lioness-name">Name:</label>
+		<input type="text" id="lioness-name">
+		<label for="lioness-color">Color:</label>
+		<input type="text" id="lioness-color">
+		<label for="lioness-age">Age:</label>
+		<input type="number" id="lioness-age">
 	</div>
-
+	<div class="lioness-events">
+		<h2>Events</h2>
+		<ul id="events-list"></ul>
+		<button id="advance-btn">Advance</button>
+	</div>
 	<script src="script.js"></script>
 </body>
 </html>
