@@ -45,12 +45,17 @@ function generateEvent() {
     document.getElementById("event").innerHTML = events;
   }  
     
-  if (document.getElementById("explore").classList.contains("active")) {
-    // Code specific to the Explore tab
-    // script.js
-// Call the function from otherScript.js
-myFunction();
-  }
+  // script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Add event listener to the Explore tab button
+  document.getElementById('exploreTab').addEventListener('click', myFunction);
+});
+
+function myFunction() {
+  // Code specific to the Explore tab
+  // Add your code here that should execute only when the Explore tab is clicked
+}
+
 }
  
 
