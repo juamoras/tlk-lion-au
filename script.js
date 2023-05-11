@@ -48,7 +48,7 @@ function generateEvent() {
   // script.js
 document.addEventListener('DOMContentLoaded', function() {
   // Add event listener to the Explore tab button
-  document.getElementById('exploreTab').addEventListener('click', myFunction);
+  document.getElementById("explore").addEventListener('click', myFunction);
 });
 
 function myFunction() {
