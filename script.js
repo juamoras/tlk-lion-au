@@ -43,7 +43,8 @@ function generateEvent() {
 
   if (events.length > 0) {
     document.getElementById("event").innerHTML = events;
-  }  
+  }
+}
     
   // script.js
 document.addEventListener('DOMContentLoaded', function() {
@@ -56,7 +57,6 @@ function myFunction() {
   // Add your code here that should execute only when the Explore tab is clicked
 }
 
-}
  
 
 function generateCoatColor() {
