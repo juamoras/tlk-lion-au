@@ -47,7 +47,9 @@ function generateEvent() {
     
   if (document.getElementById("explore").classList.contains("active")) {
     // Code specific to the Explore tab
-    // Add your code here that should execute only when the Explore tab is active
+    // script.js
+// Call the function from otherScript.js
+myFunction();
   }
 }
  
