@@ -4,8 +4,8 @@
   <title>Lioness Simulator</title>
   <link rel="stylesheet" href="style.css">
   <link type="text/css" rel="stylesheet" href="css/style.css"/>
-  <script src="script.js"></script>
-  <script src="pride.js"></script>
+  <script src="script.php"></script>
+  <script src="pride.php"></script>
 </head>
 <body>
 <div class="background-image"></div>
