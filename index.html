@@ -1,0 +1,49 @@
+<!-- HTML -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lioness Simulator</title>
+  <link rel="stylesheet" href="style.css">
+  <link type="text/css" rel="stylesheet" href="css/style.css"/>
+  <script src="script.js"></script>
+  <script src="pride.js"></script>
+</head>
+<body>
+<div class="background-image"></div>
+<div class="container">
+  <div class="events">
+    <h2>Events</h2>
+    <div class="tab">
+      <button id="lifeTab" class="tablink active" onclick="openTab('life')">Life</button>
+      <button id="exploreTab" class="tablink" onclick="openTab('explore')">Explore</button>
+      <button id="prideTab" class="tablink" onclick="openTab('pride')">Pride</button> <!-- Added Pride tab -->
+    </div>
+    <div class="box">
+      <div id="life" class="tabcontent active">
+        <p id="event"></p>
+        <button onclick="advanceMonth()">Advance</button>
+      </div>
+      <div id="explore" class="tabcontent">
+        <!-- Content for Explore tab goes here -->
+      </div>
+      <div id="pride" class="tabcontent">
+        <h3>Pride</h3>
+        <p id="prideName"></p>
+        <div id="prideMembers"></div>
+        <body onload="displayPride(generatePride())">
+      </div>
+    </div>
+  </div>
+  <div class="details">
+    <h2>Details</h2>
+    <div class="box">
+      <p><b>Name:</b> <span id="name"></span></p>
+      <p><b>Age:</b> <span id="age"></span></p>
+      <p><b>Coat color:</b> <span id="color"></span></p>
+      <button onclick="newLioness()">New Lioness</button>
+    </div>
+  </div>
+</div> 
+</body>
+</html>
